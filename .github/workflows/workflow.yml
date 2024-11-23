@@ -33,11 +33,12 @@ jobs:
         sudo apt-get install -y terraform
         terraform -version
 
-    # Authenticate with GCP using service account key
+    # Authenticate to Google Cloud using Workload Identity Federation
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v1
       with:
-        credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+        workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER }}
+        service_account: ${{ secrets.IMPERSONATED_SERVICE_ACCOUNT }}
 
     # Initialize Terraform
     - name: Terraform Init
