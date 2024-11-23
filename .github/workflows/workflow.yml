@@ -14,13 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    # Use the Bash shell regardless of the GitHub Actions runner
     defaults:
       run:
         shell: bash
 
     steps:
-    # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v4
 
@@ -35,12 +33,11 @@ jobs:
         sudo apt-get install -y terraform
         terraform -version
 
-    # Authenticate with GCP using a service account key
-    - name: Set up Google Cloud SDK
-      uses: google-github-actions/setup-gcloud@v1
+    # Authenticate with GCP using service account key
+    - name: Authenticate to Google Cloud
+      uses: google-github-actions/auth@v1
       with:
-        service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
-        export_default_credentials: true
+        credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 
     # Initialize Terraform
     - name: Terraform Init
