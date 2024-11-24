@@ -9,5 +9,5 @@ provider "google-beta" {
 }
 
 provider "apigee" {
-  organization = "your-apigee-org"
+  organization = "academic-matter-437700-t0"
 }
