@@ -12,7 +12,7 @@ terraform {
     }
     apigee = {
       source  = "scastria/apigee"
-      version = "0.1.52"
+      version = "0.1.51"
     }
   }
 }
