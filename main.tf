@@ -12,8 +12,8 @@ resource "apigee_proxy_deployment" "example" {
   revision         = "1"
   depends_on       = [apigee_proxy.MyProxy]
 
-  # Add delay before the deployment
-  provisioner "local-exec" {
-    command = "sleep 15" # Adjust the delay duration as needed
-  }
+  # # Add delay before the deployment
+  # provisioner "local-exec" {
+  #   command = "sleep 15" # Adjust the delay duration as needed
+  # }
 }
