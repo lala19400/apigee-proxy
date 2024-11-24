@@ -14,5 +14,4 @@ provider "apigee" {
   server_path  = "v1"
   use_ssl      = true
   port         = 443
-
 }
