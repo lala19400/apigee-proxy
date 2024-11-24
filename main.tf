@@ -8,6 +8,6 @@ resource "apigee_proxy" "MyProxy" {
 # Reference an existing Apigee Environment (created manually in the Console)
 resource "apigee_proxy_deployment" "example" {
   proxy_name       = "lala-proxy"
-  environment_name = "test-env"  # Replace with your environment name (e.g., dev, prod)
+  environment_name = "test-env" # Replace with your environment name (e.g., dev, prod)
   revision         = 1
 }
