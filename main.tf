@@ -2,7 +2,7 @@
 resource "apigee_proxy" "MyProxy" {
   name        = "lala-proxy"
   bundle      = "./httpbin_rev1_2020_02_02.zip"
-  bundle_hash = filebase64sha256("./httpbin_rev1_2020_02_02.zip")
+  bundle_hash = "./httpbin_rev1_2020_02_02.zip"
 }
 
 # Reference an existing Apigee Environment (created manually in the Console)
