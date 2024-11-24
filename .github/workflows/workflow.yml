@@ -69,4 +69,5 @@ jobs:
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       env:
         APIGEE_ACCESS_TOKEN: ${{ env.APIGEE_ACCESS_TOKEN }}
+        TF_LOG: DEBUG
       run: terraform apply -auto-approve -input=false
