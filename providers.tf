@@ -10,5 +10,9 @@ provider "google-beta" {
 
 provider "apigee" {
   organization = "academic-matter-437700-t0"
-  use_ssl      = false
+  server       = "apigee.googleapis.com"
+  server_path  = "v1"
+  use_ssl      = true
+  port         = 443
+
 }
