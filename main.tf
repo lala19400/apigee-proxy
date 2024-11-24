@@ -1,8 +1,8 @@
 # Reference an existing Apigee Organization (created manually in the Console)
 resource "apigee_proxy" "MyProxy" {
   name        = "httpbin"
-  bundle      = "/full/path/to/httpbin_rev1_2020_02_02.zip"
-  bundle_hash = filebase64sha256("/full/path/to/httpbin_rev1_2020_02_02.zip")
+  bundle      = "C:\\Users\\pc\\Downloads\\httpbin_rev1_2020_02_02.zip"
+  bundle_hash = filebase64sha256("C:\\Users\\pc\\Downloads\\httpbin_rev1_2020_02_02.zip")
 
 }
 
