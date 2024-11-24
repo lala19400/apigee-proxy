@@ -11,8 +11,8 @@ terraform {
       version = "~> 4.0" # Use the latest compatible major version
     }
       apigee = {
- source = "scastria/apigee"
-      version = "0.1.53"
+      source = "scastria/apigee"
+      version = ">= 0.1.53"
 }
   }
 }

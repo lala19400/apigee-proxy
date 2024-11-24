@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
 
-    # Use the Bash shell regardless of the GitHub Actions runner
     defaults:
       run:
         shell: bash
@@ -41,8 +40,18 @@ jobs:
       with:
         credentials_json: ${{ secrets.GCP_KEY }}
 
+    # Generate and export Apigee access token
+    - name: Generate Apigee Access Token
+      id: generate_token
+      run: |
+        echo "Generating Apigee access token..."
+        APIGEE_ACCESS_TOKEN=$(gcloud auth print-access-token)
+        echo "APIGEE_ACCESS_TOKEN=${APIGEE_ACCESS_TOKEN}" >> $GITHUB_ENV
+
     # Initialize Terraform
     - name: Terraform Init
+      env:
+        APIGEE_ACCESS_TOKEN: ${{ env.APIGEE_ACCESS_TOKEN }}
       run: terraform init
 
     # Format check for Terraform configuration
@@ -51,9 +60,13 @@ jobs:
 
     # Generate a Terraform execution plan
     - name: Terraform Plan
+      env:
+        APIGEE_ACCESS_TOKEN: ${{ env.APIGEE_ACCESS_TOKEN }}
       run: terraform plan -input=false
 
     # Apply Terraform configuration (only on push to main branch)
     - name: Terraform Apply
       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      env:
+        APIGEE_ACCESS_TOKEN: ${{ env.APIGEE_ACCESS_TOKEN }}
       run: terraform apply -auto-approve -input=false
