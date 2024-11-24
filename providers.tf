@@ -10,4 +10,5 @@ provider "google-beta" {
 
 provider "apigee" {
   organization = "academic-matter-437700-t0"
+  use_ssl      = false
 }
