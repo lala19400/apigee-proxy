@@ -10,5 +10,5 @@ provider "google-beta" {
 
 provider "apigee" {
   organization = "academic-matter-437700-t0"
-  server       = "sa-apigee.googleapis.com"
+  server       = "apigee.googleapis.com"
 }
