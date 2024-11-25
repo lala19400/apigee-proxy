@@ -14,7 +14,7 @@ variable "apigee_proxy_deployment" {
     proxy_name       = string
     environment_name = string # Replace with your environment name (e.g., dev, prod)
     revision         = string
-    service_account = string
+    service_account  = string
     })
   )
   default = {}
